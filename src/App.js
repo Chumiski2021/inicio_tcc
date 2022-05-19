@@ -1,51 +1,60 @@
-import './estilo.css';
-import { useState } from 'react'
-import bem_vindo from './bem_vindo.png'
-
-
-
-
-function App() {
-
-  const[email, setEmail, password, setPassword] = useState("")
-
+import Login from "./pages/Login";
+import React from "react";
+import './App.css' 
+import React from "react";
+import IconButton from "@material-ui/core/IconButton";
+import InputLabel from "@material-ui/core/InputLabel";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Input from "@material-ui/core/Input";
+  
+const App = () => {
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+  
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+  
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+  
   return (
-    <div className='container'>
-        <div className='container-login'>
-          <div className='wrap-login'>
-            <form className='login-form'>
-                <div className='titulo-form'>
-                  <img className='bem-vindo' src={bem_vindo} />
-                </div>
-                <div className='campo-form'>
-                    <input className={ email !== "" ? 'has-val input' :'input'} 
-                    type="email" 
-                    value={email} onChange={e => setEmail (e.target.value)}/>
-                    <span className='focus-input' data-placeholder='Email'></span>
-                </div>
-
-                <div className='campo-form'>
-                    <input className={ email !== "" ? 'has-val input' :'input'} 
-                    type="password"
-                    value={password} onChange={e => setPassword (e.target.value)}/>
-                    <span className='focus-input' data-placeholder='Senha'></span>
-                    
-                </div>
-
-                <div className='container-login-form-btn'>
-                   <button className='login-form-btn'>Entrar</button>
-                </div>
-
-                <div className='text-center'>
-                    <span className='text1'>Não possui uma conta?</span>
-                    <a className='text2' href='#'>Cadastre-se aqui!</a>
-                </div>
-              </form>
-            </div>
-        </div>
+    <div
+      style={{
+        marginLeft: "30%",
+      }}
+    >
+      <h4>How to show and hide password in ReactJS?</h4>
+      <InputLabel htmlFor="standard-adornment-password">
+        Enter your Password
+      </InputLabel>
+      <Input
+        type={values.showPassword ? "text" : "password"}
+        onChange={handlePasswordChange("password")}
+        value={values.password}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton
+              onClick={handleClickShowPassword}
+              onMouseDown={handleMouseDownPassword}
+            >
+              {values.showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
+          </InputAdornment>
+        }
+      />
     </div>
-  )
-
-}
-
+  );
+};
+  
 export default App;
+

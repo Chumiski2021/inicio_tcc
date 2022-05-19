@@ -1,23 +1,27 @@
 * {
     margin: 0%;
     padding: 0%;
-    
-}
-body{
-    background-image: url('fundo.jpg') ;
-    background-size: cover;
-    background-size: 1450px 870px;
-    
+
 }
 
-.container{
+body {
+    background-image: url('.././images/background\ .jpg');
+    background-size: cover;
+    background-size: 1500px 900px;
+    background-repeat: no-repeat;
+
+}
+
+.container {
     width: 100%;
     margin: 0 auto;
+    overflow: hidden;
+
 }
 
-.container-login{
+.container-login {
     width: 100%;
-    min-height: 100vh;
+    min-height: 70vh;
 
     display: flex;
     flex-wrap: wrap;
@@ -27,11 +31,14 @@ body{
     padding: 15px;
 
 }
-.wrap-login{
-    width: 390px;  
+
+.wrap-login {
+    width: 390px;
     background-color: moccasin;
     border-radius: 10px;
     border-top: 0ch;
+    position: absolute;
+    top: 15%;
 
     overflow: hidden;
     padding: 77px 60px 70px 55px;
@@ -39,11 +46,11 @@ body{
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.7);
 }
 
-.login-form{
+.login-form {
     width: 100%;
 }
 
-.titulo-form{
+.titulo-form {
     display: block;
     font-size: 50px;
     height: 66px;
@@ -56,24 +63,26 @@ body{
 
     line-height: 1.2;
     text-align: center;
-    
+
 }
 
-.titulo-form img{
+.titulo-form img {
     position: relative;
     top: 8px;
 }
 
-.campo-form{
+.campo-form {
     width: 100%;
     position: relative;
     margin-bottom: 35px;
     font-weight: bold;
 }
-.campo-form span{
-    color:#579200 ;
+
+.campo-form span {
+    color: #579200;
 }
-.input{
+
+.input {
     font-size: 15px;
     color: black;
     line-height: 1.2;
@@ -84,11 +93,11 @@ body{
     width: 100%;
     height: 45px;
     text-align: center;
-    
-    
+
+
 }
 
-.focus-input{
+.focus-input {
     position: absolute;
     display: block;
     width: 100%;
@@ -100,12 +109,12 @@ body{
 
 }
 
-.logo{
+.logo {
     width: 200px;
     height: 200px;
 }
 
-.focus-input::before{
+.focus-input::before {
     content: none;
     display: block;
     position: absolute;
@@ -120,17 +129,17 @@ body{
 
 }
 
-.focus-input::after{
+.focus-input::after {
     font-size: 15px;
     color: #579200;
     line-height: 1.2;
 
     content: attr(data-placeholder);
-    
+
     display: block;
     width: 100%;
     position: absolute;
-    top:5%;
+    top: 5%;
     left: 0;
     padding-left: 3%;
 
@@ -140,15 +149,15 @@ body{
 
 }
 
-.input:focus{
+.input:focus {
     outline: 0;
 }
 
-.input:focus + .focus-input::after{
+.input:focus+.focus-input::after {
     top: -20px;
 }
 
-.login-form-btn{
+.login-form-btn {
     font-size: 90%;
     font-weight: bold;
     border: none;
@@ -169,11 +178,11 @@ body{
     background: #579200;
 }
 
-.login-form-btn:hover{
+.login-form-btn:hover {
     cursor: pointer;
 }
 
-.text-center{
+.text-center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,26 +190,44 @@ body{
     margin-top: 11%;
 }
 
-.text1{
-    font: size 10%; ;
+.text1 {
+    font: size 10%;
+    ;
     color: #579200;
     line-height: 1.5;
     padding-right: 2%;
 }
 
-.text2{
-    font: size 10%; 
+.text2 {
+    font: size 10%;
     font-weight: bold;
     color: #579200;
     line-height: 1.5;
 
 }
 
-.has-val + .focus-input::after{
+.has-val+.focus-input::after {
     top: -22px;
 }
 
-.has-val + .focus-input::before{
-   width: 100%;
+.has-val+.focus-input::before {
+    width: 100%;
 }
 
+@media only screen and (max-device-width: 900px) {
+    .container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-device-width: 900px) {
+    .menu {
+        width: 600px;
+    }
+}
+
+@media only screen and (max-device-width: 700px) {
+    .menu {
+        width: 400px;
+    }
+}
